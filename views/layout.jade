@@ -3,7 +3,22 @@ html
     head
         title= title
         script(src="/javascripts/jquery-2.1.4.min.js")
-        //script(src="/javascripts/jquery.form.js")
+        script(src="/javascripts/global.js")
+        link(rel='stylesheet', href='/stylesheets/font-awesome.min.css')
+        link(href='http://fonts.googleapis.com/css?family=Ubuntu&subset=cyrillic,latin' rel='stylesheet' type='text/css')
         block head
     body
-        block content
+        div#nav
+            ul
+                for item in nav
+                    a(href=item.link)
+                        li
+                            i(class="fa fa-" + item.icon)
+                            p= item.text
+        div#navButton
+            i.fa.fa-bars
+        div#content
+            div#banner= bannerText
+            div#pageContent
+                //p= JSON.stringify(mediaFiles)
+                block content

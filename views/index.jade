@@ -7,7 +7,9 @@ block head
 block content
     h1= title
     p Welcome to #{title}
-    p DBTEST | #{db}
+    ol
+        for item in db
+            li #{item}
     form#form
         input(type="text" name="text")
         input(type="submit" value="SUBMIT")
