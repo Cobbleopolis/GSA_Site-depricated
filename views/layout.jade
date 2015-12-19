@@ -10,15 +10,14 @@ html
     body
         div#nav
             ul
-                for item in nav
-                    a(href=item.link)
-                        li
-                            i(class="fa fa-" + item.icon)
-                            p= item.text
+                if nav != undefined
+                    for item in nav
+                        a(href=item.link)
+                            li
+                                i(class="fa fa-" + item.icon)
+                                p= item.text
         div#navButton
             i.fa.fa-bars
         div#content
-            div#banner= bannerText
             div#pageContent
-                //p= JSON.stringify(mediaFiles)
                 block content
