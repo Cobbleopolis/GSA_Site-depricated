@@ -37,11 +37,13 @@ body
     background: rgba(0,0,0,0.6)
     opacity: 0
     @include transition(opacity 0.4s linear)
+    display: none
     //transition: all 0.5s
     //-webkit-transition: all 0.5s
 
 #content.darken
   &:after
+    display: inherit
     opacity: .4 !important
 
 
