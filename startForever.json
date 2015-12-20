@@ -1,0 +1,8 @@
+{
+  "uid": "GSA-Site",
+  "append": true,
+  "watch": true,
+  "watchIgnore": "/public",
+  "script": "bin/www",
+  "sourceDir": "."
+}
