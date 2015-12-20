@@ -1,7 +1,8 @@
 body {
   font-family: Ubuntu;
   padding: 50px;
-  background: #2e2e2e; }
+  background: #2e2e2e;
+  overflow-x: hidden; }
 
 #contentArticle {
   position: absolute;
