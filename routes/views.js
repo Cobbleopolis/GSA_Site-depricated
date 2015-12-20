@@ -12,7 +12,7 @@ var nav = [
     {
         text: 'Flags',
         icon: 'flag',
-        link: '/flag'
+        link: '/flags'
     }
 ];
 
@@ -68,6 +68,10 @@ router.get('/', function (req, res, next) {
         });
     });
 
+});
+
+router.get("/flags", function(req, res, next) {
+    res.render('flags', {title: 'Chattahoochee GSA', banner: "Flags", nav: nav});
 });
 
 
