@@ -1,18 +1,21 @@
 var isNavShown = false;
 var nav = null;
-var content = null;
+var contentArticle = null;
+var overlay = null;
 var navButton = null;
 var navLabel = $( "<span id=\"navLabel\">&nbsp;&nbsp;&nbsp;Navigation</span>" );
 navLabel.fadeOut();
 
+var navSlideTime = 350;
 
 $(document).ready( function() {
-    content = $("#content");
+    contentArticle = $("#contentArticle");
+    overlay = $("#overlay");
     nav = $("#nav");
     navButton = $("#navButton");
 
+    navButton.css("height", window.getComputedStyle(document.getElementById("navButton"), null).getPropertyValue("height"));
     navButton.append(navLabel);
-    navButton.css("height", navButton.height());
 
     navButton.click(function () {
         toggleNav();
@@ -26,18 +29,21 @@ $(document).ready( function() {
         }
     );
 
-    content.click(function () {
+    overlay.click(function () {
         if (isNavShown)
             toggleNav();
     });
+
+
 
 });
 
 function openNav() {
     //console.log("OPEN");
     if (!isNavShown) {
-        content.animate({"left": nav.outerWidth()}, 350);
-        navButton.animate({"left": nav.outerWidth()}, 350);
+        contentArticle.stop().animate({"left": nav.outerWidth()}, navSlideTime);
+        navButton.stop().animate({"left": nav.outerWidth()}, navSlideTime);
+        overlay.stop().css("display", "inline").animate({"left": nav.outerWidth(), "opacity": "0.4"}, navSlideTime);
         isNavShown = true;
     }
 }
@@ -45,8 +51,14 @@ function openNav() {
 function closeNav() {
     //console.log("CLOSE");
     if (isNavShown) {
-        content.animate({"left": "0"}, 350);
-        navButton.animate({"left": "0"}, 350);
+        contentArticle.stop().animate({"left": "0"}, navSlideTime);
+        navButton.stop().animate({"left": "0"}, navSlideTime);
+        overlay.stop().animate({"left": "0", "opacity": "0"}, {
+            duration: navSlideTime,
+            done: function() {
+                overlay.css("display", "none");
+            }
+        });
         isNavShown = false;
     }
 }
@@ -56,5 +68,5 @@ function toggleNav() {
         closeNav();
     else
         openNav();
-    content.toggleClass("darken")
+    contentArticle.toggleClass("darken");
 }

@@ -8,18 +8,21 @@ html
         link(href='http://fonts.googleapis.com/css?family=Ubuntu&subset=cyrillic,latin' rel='stylesheet' type='text/css')
         block head
     body
-        div#nav
-            ul
-                if nav != undefined
-                    for item in nav
-                        a(href=item.link)
-                            li
-                                i(class="fa fa-" + item.icon)
-                                p= item.text
+        headder
+            div#nav
+                ul
+                    if nav != undefined
+                        for item in nav
+                            a(href=item.link)
+                                li
+                                    i(class="fa fa-" + item.icon)
+                                    p= item.text
         div#navButton
             i.fa.fa-bars
-        div#content
-            div#banner
-                span= title
-            div#pageContent
-                block content
+        article#contentArticle
+            div#content
+                div#banner
+                    span= title
+                div#pageContent
+                    block content
+        div#overlay

@@ -11,6 +11,18 @@ $backgroundColor: #e0e0e0
 
 $navColor: darken($backgroundColor, 70)
 $brightNavColor: darken($backgroundColor, 50)
+$brightBackgroundColor: lighten($backgroundColor, 20)
+
+$borderColor: rgba(34, 36, 38, 0.5)
+$mainBorderColor: darken($backgroundColor, 40)
+$navBorderColor: darken($backgroundColor, 60)
+
+
+//color constants
+$red: #DB2828
+$blue: #2185D0
+$green: #21BA45
+$yellow: #FBBD08
 
 //fonts
 $font: Ubuntu
@@ -20,34 +32,36 @@ body
     padding: 50px
     background: $navColor
 
-#content
-    width: 100%
-    height: 100%
-    background: $backgroundColor
+#contentArticle
     position: absolute
     left: 0
     top: 0
-    &:after
-        content: '\A'
-        position: absolute
-        width: 100%
-        height: 100%
-        top: 0
-        left: 0
-        background: rgba(0, 0, 0, 0.6)
-        opacity: 0
-        @include transition(opacity 0.4s linear)
-        display: none
-//transition: all 0.5s
-//-webkit-transition: all 0.5s
+    width: 100%
+    height: 100%
+    background: $backgroundColor
 
-#content.darken
-    &:after
-        display: inherit
-        opacity: .4 !important
+#content
+    width: 100%
+    //height: 100%
+    background: $backgroundColor
+    //overflow: scroll
+    //overflow-x: hidden
+
+#overlay
+    content: '\A'
+    position: absolute
+    width: 100%
+    height: 100%
+    top: 0
+    left: 0
+    background: rgba(0, 0, 0, 0.6)
+    opacity: 0
+    display: none
 
 #pageContent
-    padding-left: 5em
+    padding:
+        left: 5rem
+        right: 5rem
 
 #nav
     z-index: 0
@@ -67,35 +81,34 @@ body
             text-decoration: none !important
             li
                 text-align: center
-                padding: 1em 2em 0 2em
-                border-bottom: solid 1px darken($backgroundColor, 60)
+                padding: 1rem 2rem 0 2rem
+                border-bottom: solid 1px $navBorderColor
                 @include transition(background 0.1s linear)
                 &:hover
                     background: $brightNavColor !important
                 i
-                    font-size: 2em
+                    font-size: 2rem
                 p
                     margin-top: 0 !important
 
 #navButton
     float: left
     left: 0
-    top: 2em
+    top: 2rem
     position: fixed
     z-index: 1
     color: #FFFFFF
     background: $navColor
     font-size: 20px
     padding: 1em
-    border-top-right-radius: .25em
-    border-bottom-right-radius: .25em
-    display: inline !important
+    border-top-right-radius: 0.25rem
+    border-bottom-right-radius: 0.25rem
+    display: inline-block !important
     i
         position: relative
         vertical-align: middle
     #navLabel
         display: none
-        //margin-left: 1em;
         padding: 0
         vertical-align: middle
     &:hover
@@ -104,7 +117,9 @@ body
 #banner
     width: 100%
     text-align: center
-    padding-top: 0.25em
+    padding:
+        top: 0.25rem
+        bottom: 2rem
     font:
-        size: 3em
+        size: 3rem
         weight: bold

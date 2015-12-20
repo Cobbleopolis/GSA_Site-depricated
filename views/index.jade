@@ -1,15 +1,33 @@
 extends layout
 
+mixin makeSection(data)
+    div#contentSection
+        h3= data.header
+        hr
+        p= data.content
+
 block head
     link(rel='stylesheet', href='/stylesheets/index.css')
     script(src="/javascripts/index.js")
 
 block content
-    h1= title
-    p Welcome to #{title}
-    ol
-        for item in db
-            li #{item}
-    form#form
-        input(type="text" name="text")
-        input(type="submit" value="SUBMIT")
+    table#topSection
+        tbody
+            tr
+                td
+                    +makeSection(db.topSection)
+                td
+                    div#slideShow
+                        for imageSrc in slideshow
+                            img#slideShowImage(src= "/images/slideshow/" + imageSrc)
+            table
+                    tbody
+                        for item in db.sections
+                                tr
+                                    for entry in item
+                                        td
+                                            +makeSection(entry)
+
+    //form#form
+    //    input(type="text" name="text")
+    //    input(type="submit" value="SUBMIT")
