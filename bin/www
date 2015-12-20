@@ -7,7 +7,7 @@
 var app = require('../app');
 var debug = require('debug')('GSA_Site:server');
 var http = require('http');
-//var dataBase = require('./db');
+var dataBase = require('./db');
 
 var bodyParser = require('body-parser');
 

@@ -31,9 +31,10 @@ router.get('/', function (req, res, next) {
     };
 
     db.serialize(function() {
-        db.each('select rowid as id, header, contentArticle from homePage', function(err, row) {
+        db.each('select rowid as id, header, content from homePage', function(err, row) {
             if (err)
                 throw err;
+            console.log(JSON.stringify(row));
             var info = {header: row.header, content: row.content};
             if (row.id === 1)
                 dbOut.topSection = info ;
@@ -41,6 +42,7 @@ router.get('/', function (req, res, next) {
                 dbOut.sections.push(info);
         }, function() {
             dbOut.sections = groupped(dbOut.sections, 3);
+            console.log(JSON.stringify(dbOut));
             res.render('index', {title: 'Chattahoochee GSA', nav: nav, slideshow: fs.readdirSync(__dirname + '/../public/images/slideshow'), db: dbOut});
         });
     });
