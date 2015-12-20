@@ -17,7 +17,8 @@ $(document).ready( function() {
     navButton.css("height", window.getComputedStyle(document.getElementById("navButton"), null).getPropertyValue("height"));
     navButton.append(navLabel);
 
-    overlay.css('height', window.getComputedStyle(document.getElementById("content"), null).getPropertyValue("height"));
+    var overlayHeight = window.getComputedStyle(document.getElementById("content"), null).getPropertyValue("height");
+    overlay.css('height', overlayHeight === 'auto' ? '100%' : overlayHeight);
 
     navButton.click(function () {
         toggleNav();
