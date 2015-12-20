@@ -1,6 +1,6 @@
 var isNavShown = false;
 var nav = null;
-var contentArticle = null;
+var content = null;
 var overlay = null;
 var navButton = null;
 var navLabel = $( "<span id=\"navLabel\">&nbsp;&nbsp;&nbsp;Navigation</span>" );
@@ -9,7 +9,7 @@ navLabel.fadeOut();
 var navSlideTime = 350;
 
 $(document).ready( function() {
-    contentArticle = $("#contentArticle");
+    content = $("#content");
     overlay = $("#overlay");
     nav = $("#nav");
     navButton = $("#navButton");
@@ -43,7 +43,7 @@ $(document).ready( function() {
 function openNav() {
     //console.log("OPEN");
     if (!isNavShown) {
-        contentArticle.stop().animate({"left": nav.outerWidth()}, navSlideTime);
+        content.stop().animate({"left": nav.outerWidth()}, navSlideTime);
         navButton.stop().animate({"left": nav.outerWidth()}, navSlideTime);
         overlay.stop().css("display", "inline").animate({"left": nav.outerWidth(), "opacity": "0.4"}, navSlideTime);
         isNavShown = true;
@@ -53,7 +53,7 @@ function openNav() {
 function closeNav() {
     //console.log("CLOSE");
     if (isNavShown) {
-        contentArticle.stop().animate({"left": "0"}, navSlideTime);
+        content.stop().animate({"left": "0"}, navSlideTime);
         navButton.stop().animate({"left": "0"}, navSlideTime);
         overlay.stop().animate({"left": "0", "opacity": "0"}, {
             duration: navSlideTime,
@@ -70,5 +70,5 @@ function toggleNav() {
         closeNav();
     else
         openNav();
-    contentArticle.toggleClass("darken");
+    content.toggleClass("darken");
 }

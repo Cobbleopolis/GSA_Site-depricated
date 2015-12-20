@@ -1,19 +1,15 @@
 body {
   font-family: Ubuntu;
   padding: 50px;
-  background: #2e2e2e;
+  background: #e0e0e0;
   overflow-x: hidden; }
 
-#contentArticle {
+#content {
   position: absolute;
   left: 0;
   top: 0;
   width: 100%;
-  height: 100%;
-  background: #e0e0e0; }
-
-#content {
-  width: 100%;
+  background: #e0e0e0;
   background: #e0e0e0; }
 
 #overlay {

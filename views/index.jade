@@ -21,12 +21,12 @@ block content
                         for imageSrc in slideshow
                             img#slideShowImage(src= "/images/slideshow/" + imageSrc)
             table
-                    tbody
-                        for item in db.sections
-                                tr
-                                    for entry in item
-                                        td
-                                            +makeSection(entry)
+                tbody
+                    for item in db.sections
+                            tr
+                                for entry in item
+                                    td
+                                        +makeSection(entry)
 
     //form#form
     //    input(type="text" name="text")
