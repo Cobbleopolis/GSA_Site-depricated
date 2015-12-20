@@ -8,6 +8,11 @@ var nav = [
         text: 'Home',
         icon: 'home',
         link: '/'
+    },
+    {
+        text: 'Flags',
+        icon: 'flag',
+        link: '/flag'
     }
 ];
 
