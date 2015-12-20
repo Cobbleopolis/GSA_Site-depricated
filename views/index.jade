@@ -7,8 +7,8 @@ mixin makeSection(data)
         p= data.content
 
 block head
-    link(rel='stylesheet', href='/stylesheets/index.css')
-    script(src="/javascripts/index.js")
+    link(rel='stylesheet', href='public/stylesheets/index.css')
+    script(src="public/javascripts/index.js")
 
 block content
     table#topSection
@@ -19,7 +19,7 @@ block content
                 td
                     div#slideShow
                         for imageSrc in slideshow
-                            img#slideShowImage(src= "/images/slideshow/" + imageSrc)
+                            img#slideShowImage(src= "public/images/slideshow/" + imageSrc)
     for item in db.sections
         table
             tbody
