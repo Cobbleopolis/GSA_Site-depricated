@@ -52,18 +52,15 @@ router.get('/', function (req, res, next) {
                     currentSection = row.section;
                 }
                 if (currentSection != row.section) {
-                    console.log("Pushing: " + current.length);
                     currentSection = row.section;
                     dbOut.sections.push(current);
                     current = [];
                 }
                 current.push(row);
-                console.log(row.section)
             }
 
         }, function() {
             dbOut.sections.push(current);
-            console.log(JSON.stringify(dbOut));
             res.render('index', {title: 'Chattahoochee GSA', banner: "Chattahoochee Gay-Straight Alliance", nav: nav, slideshow: fs.readdirSync(__dirname + '/../public/images/slideshow'), db: dbOut});
         });
     });
