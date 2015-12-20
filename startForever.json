@@ -2,7 +2,7 @@
   "uid": "GSA-Site",
   "append": true,
   "watch": true,
-  "watchIgnore": "/public",
+  "watchIgnore": "public",
   "script": "bin/www",
   "sourceDir": "."
 }
