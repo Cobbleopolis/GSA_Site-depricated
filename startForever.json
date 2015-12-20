@@ -1,7 +1,0 @@
-{
-  "uid": "GSA-Site",
-  "append": true,
-  "watch": true,
-  "script": "bin/www",
-  "sourceDir": "."
-}
