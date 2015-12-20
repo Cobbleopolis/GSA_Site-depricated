@@ -11,7 +11,7 @@ var nav = [
     },
     {
         text: 'Flags',
-        icon: 'flag-o',
+        icon: 'flag',
         link: '/flags'
     }
 ];
