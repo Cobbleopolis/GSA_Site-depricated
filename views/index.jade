@@ -1,7 +1,7 @@
 extends layout
 
 mixin makeSection(data)
-    div#contentSection
+    div.contentSection
         h3= data.header
         hr
         p= data.content
@@ -19,7 +19,7 @@ block content
                 td
                     div#slideShow
                         for imageSrc in slideshow
-                            img#slideShowImage(src= "public/images/slideshow/" + imageSrc)
+                            img.slideShowImage(src= "public/images/slideshow/" + imageSrc)
     for item in db.sections
         table
             tbody
